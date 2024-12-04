@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>{% block title %}Portfolio - Home {% endblock title %}</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+        <link rel="icon" type="image/png" href="{% static 'imgs/favicon.ico'%}" />
+        {% block extrahead %} {% endblock extrahead %}
+    </head>
+    <body>
+        <header>
+            <a href="/home" class="logo-holder">
+                <div class="logo">TM</div>
+                <div class="logo-text">Portfolio Website</div>
+            </a>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="/home">Home</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li>
+                        <a href="mailto:tmico@gmail.com" class="button"
+                            >Contact Me</a
+                        >
+                    </li>
+                </ul>
+                <a href="#" class="mobile-toggle" onClick="togggleMobileMenu();"
+                    ><svg
+                        class="w-6 h-6 text-gray-800 dark:text-white"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-width="2"
+                            d="M5 7h14M5 12h14M5 17h14"
+                        />
+                    </svg>
+                </a>
+            </nav>
+        </header>
+        <main>{% block content %} {% endblock content %}</main>
+
+        <script src="{% static 'js/base.js'%}"></script>
+
+        {% block extra_js %} {% endblock extra_js %}
+    </body>
+</html>
