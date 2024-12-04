@@ -1,1 +1,0 @@
-from portfolio.wsgi import main as app
