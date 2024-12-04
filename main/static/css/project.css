@@ -1,0 +1,189 @@
+.container {
+    max-width: 1440px;
+    margin: auto;
+    gap: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    @media (max-width: 1440px) {
+        width: 100%;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+.project {
+    h1 {
+        font-size: 2rem;
+        line-height: 1;
+        margin-bottom: 5px;
+        small {
+            display: block;
+            font-weight: 100;
+            font-size: 0.5em;
+        }
+        @media (max-width: 1024px) {
+            font-size: 1.5rem;
+            small {
+                font-size: 0.5em;
+            }
+        }
+    }
+    /* Project Card */
+    .project-card {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        background-color: var(--blue-100);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .project-info {
+        flex: 1;
+        padding-right: 20px; /* Adds some space between the text and the carousel */
+    }
+
+    /* Adjustments to previous styles for consistency */
+    h1,
+    p {
+        margin-bottom: 20px;
+    }
+
+    /* Carousel */
+    .carousel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative; /* Added to position controls */
+        max-width: 50%; /* Adjust the width of the carousel relative to the card */
+        margin-left: 20px; /* Optional: Adds some space between the info and carousel */
+    }
+
+    .carousel-images {
+        display: flex;
+        flex: 1; /* Allows the carousel to fill the space */
+        overflow: hidden;
+        position: relative; /* Ensure the images container doesn't overlap controls */
+    }
+
+    /* Carousel Controls */
+    .carousel-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--base-100);
+        font-size: 2rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        cursor: pointer;
+        user-select: none; /* Prevent text selection */
+        z-index: 10; /* Ensure controls are above the images */
+    }
+
+    .carousel-control.prev {
+        left: 0;
+        border-radius: 3px 0 0 3px; /* Adjusted for consistency */
+    }
+
+    .carousel-control.next {
+        right: 0;
+        border-radius: 0 3px 3px 0; /* Adjusted for consistency */
+    }
+    .carousel-item {
+        display: flex;
+        justify-content: center; /* Center the image horizontally */
+        align-items: center; /* Center the image vertically */
+        background-color: var(--base-800); /* Fill the background with black */
+        width: 100%; /* Full width of the carousel */
+        height: 400px; /* Fixed height, adjust as needed */
+        border-radius: 10px;
+    }
+
+    .carousel-item img {
+        max-height: 100%; /* Limit the image height to fit within the container */
+        max-width: 100%; /* Limit the image width to fit within the container */
+        object-fit: contain; /* Maintain aspect ratio and fit the image within the bounds */
+    }
+
+    .button-container {
+        display: inline-block;
+        padding: 10px 10px;
+        margin: auto;
+    }
+    .small-screen {
+        display: none;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 10px 30px;
+        background-color: var(--blue);
+        color: var(--base-100);
+        border-radius: 20px;
+        transition: ease 0.3s all;
+        &:hover {
+            text-decoration: none;
+            background-color: var(--base-800);
+        }
+
+        &.white {
+            background-color: var(--base-100);
+            color: var(--base-800);
+            &:hover {
+                text-decoration: none;
+                background-color: var(--blue-800);
+                color: var(--base-100);
+            }
+        }
+        &.black {
+            background-color: var(--base-800);
+            color: var(--base-100);
+            &:hover {
+                text-decoration: none;
+                background-color: var(--blue-800);
+                color: var(--base-100);
+            }
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+        flex-direction: column;
+        .project-card {
+            flex-direction: column;
+            gap: 10px;
+            .big-screen {
+                display: none;
+            }
+        }
+        .project-info,
+        .carousel {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+        }
+
+        .project-info {
+            order: -1;
+        }
+
+        .carousel {
+            order: 2; /* Puts the carousel below the info on small screens */
+            margin-left: 0; /* Resets the margin for smaller screens */
+            padding-top: 20px;
+        }
+        .button-container {
+            order: 3;
+        }
+        .small-screen {
+            display: inline-block;
+            gap: 10px;
+            a {
+                margin-top: 10px;
+            }
+        }
+    }
+}
